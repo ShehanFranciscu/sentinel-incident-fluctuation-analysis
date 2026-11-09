@@ -1,0 +1,45 @@
+{
+  "disclaimer": "ALL VALUES ARE FICTIONAL. Normalized illustrative data only.",
+  "investigations": [
+    {
+      "customer_name": "Fictional Customer Alpha",
+      "workspace_alias": "demo-alpha",
+      "investigation": "September: 100 incidents; October: 80 incidents. Source classification: Decrease. A representative rule declined, but cause is not established. Validate analytics rule health and telemetry before interpreting the decline as improvement."
+    },
+    {
+      "customer_name": "Fictional Customer Beta",
+      "workspace_alias": "demo-beta",
+      "investigation": "September: 40 incidents; October: 44 incidents. Source classification: Stable. A representative rule increased while another decreased. Investigate rule-level changes independently of the stable total."
+    }
+  ],
+  "chart_evidence": [
+    {
+      "customer_name": "Fictional Customer Alpha",
+      "workspace_alias": "demo-alpha",
+      "tool": "MonthlyIncidentTrend",
+      "status": "Success",
+      "rows": [{"PreviousMonthIncidentCount": 100, "AnalysisMonthIncidentCount": 80, "ChangePercent": -20.0, "OverallTrend": "Decrease"}]
+    },
+    {
+      "customer_name": "Fictional Customer Alpha",
+      "workspace_alias": "demo-alpha",
+      "tool": "IncidentDrivers",
+      "status": "Success",
+      "rows": [{"RuleName": "Fictional Rule A", "Difference": -12, "DriverStatus": "Illustrative Only"}]
+    },
+    {
+      "customer_name": "Fictional Customer Beta",
+      "workspace_alias": "demo-beta",
+      "tool": "MonthlyIncidentTrend",
+      "status": "Success",
+      "rows": [{"PreviousMonthIncidentCount": 40, "AnalysisMonthIncidentCount": 44, "ChangePercent": 10.0, "OverallTrend": "Stable"}]
+    },
+    {
+      "customer_name": "Fictional Customer Beta",
+      "workspace_alias": "demo-beta",
+      "tool": "IncidentDrivers",
+      "status": "Success",
+      "rows": [{"RuleName": "Fictional Rule B", "Difference": 8, "DriverStatus": "Illustrative Only"}]
+    }
+  ]
+}

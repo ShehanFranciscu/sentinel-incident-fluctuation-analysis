@@ -1,0 +1,28 @@
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.key
+*.secret
+secrets.json
+local.settings.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Sensitive exports / output
+run-history/
+private/
+output/
+reports/
+*.pdf
+*.zip
+*production*.json
+*workflow-export*.json
+.DS_Store

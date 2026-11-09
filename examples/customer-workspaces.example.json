@@ -1,0 +1,12 @@
+[
+  {
+    "customer_name": "Fictional Customer Alpha",
+    "workspace_alias": "demo-alpha",
+    "workspace_id": "00000000-0000-0000-0000-000000000001"
+  },
+  {
+    "customer_name": "Fictional Customer Beta",
+    "workspace_alias": "demo-beta",
+    "workspace_id": "00000000-0000-0000-0000-000000000002"
+  }
+]

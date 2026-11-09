@@ -1,0 +1,14 @@
+digraph Overview {
+ graph [rankdir=LR, bgcolor="white", label="Microsoft Sentinel Incident Fluctuation Analysis\nPublic Reference Architecture", labelloc=t, fontname="DejaVu Sans", fontsize=19, fontcolor="#142A43", nodesep=0.36, ranksep=0.55, splines=polyline, pad=0.3];
+ node [shape=box, style="rounded,filled", fillcolor="#EFF5FA", color="#9CB5CB", penwidth=1.25, fontname="DejaVu Sans", fontcolor="#142A43", fontsize=11, margin="0.18,0.13"];
+ edge [color="#5D7C9B", penwidth=1.5, arrowsize=0.7];
+ schedule [label="Monthly trigger\n+ customer registry", fillcolor="#DBEAF8"];
+ collector [label="Logic Apps Standard\nPer-customer KQL queries\n+ conditional health checks"];
+ foundry [label="Foundry agent\nCUSTOMER_ANALYSIS\nPer-customer narratives", fillcolor="#DCEAF8"];
+ compact [label="Compact + validate\nNarratives and chart evidence", fillcolor="#E8F4EF", color="#8FB7A3"];
+ pdf [label="Foundry agent\nMANAGEMENT_PDF\nCode Interpreter", fillcolor="#DCEAF8"];
+ delivery [label="Download + validate PDF\nOutlook delivery", fillcolor="#DBEAF8"];
+ schedule -> collector -> foundry -> compact -> pdf -> delivery;
+ workspaces [label="Customer Sentinel workspaces\nAzure Lighthouse delegated access", fillcolor="#E6F3EF", color="#88B7A6"];
+ workspaces -> collector [style=dashed, color="#629E89"];
+}

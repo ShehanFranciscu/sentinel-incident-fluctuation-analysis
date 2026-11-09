@@ -1,0 +1,19 @@
+name: Public sample and privacy checks
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate-public-reference:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate fictional evidence contract
+        run: python3 scripts/validate_sample.py examples/management-evidence.example.json
+      - name: Scan repository for common accidental disclosures
+        run: python3 scripts/public_release_check.py

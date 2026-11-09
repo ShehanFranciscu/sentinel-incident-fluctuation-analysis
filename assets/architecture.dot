@@ -1,0 +1,44 @@
+digraph SentinelMonthlyReporting {
+  graph [rankdir=TB, bgcolor="white", fontname="DejaVu Sans", fontsize=22, label="Microsoft Sentinel Monthly Incident Fluctuation Analysis\nSanitized MSSP Reference Architecture", labelloc=t, labeljust=c, pad=0.45, nodesep=0.50, ranksep=0.60, splines=ortho];
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, color="#9EB5CB", fillcolor="#F0F5FA", fontcolor="#142A43", penwidth=1.15, margin="0.20,0.12"];
+  edge [color="#5B7593", penwidth=1.3, arrowsize=0.7];
+  trigger [label="Monthly recurrence\nLogic Apps Standard", fillcolor="#DCEAF7"];
+  registry [label="Approved customer registry\n1–10 workspaces"];
+  trigger -> registry;
+
+  subgraph cluster_percustomer {
+    label="Phase 1  •  Evidence collection and customer investigation";
+    style="rounded,filled"; color="#CADCEB"; fillcolor="#F8FBFE"; fontcolor="#142A43"; fontsize=14; margin=22;
+    loop [label="Sequential per-customer loop"];
+    query [label="Azure Monitor Logs Query API\nDelegated workspace access"];
+    mandatory [label="Mandatory KQL evidence\nMonthlyIncidentTrend\nIncidentDrivers"];
+    decision [label="Further investigation?", shape=diamond, fillcolor="#E9F0F6", margin="0.22,0.11"];
+    optional [label="Conditional KQL evidence\nRule changes • Rule health • Telemetry"];
+    collect [label="Collect evidence with\ncustomer / workspace attribution"];
+    analyze [label="Foundry agent: CUSTOMER_ANALYSIS\nConcise per-customer findings", fillcolor="#DFEDF8"];
+    loop -> query -> mandatory -> decision;
+    decision -> optional [xlabel="Yes"];
+    decision -> collect [xlabel="No"];
+    optional -> collect;
+    collect -> analyze;
+  }
+  registry -> loop;
+
+  customer [label="Customer Sentinel /\nLog Analytics workspaces", shape=cylinder, fillcolor="#E5F5F2", color="#7AAC9F"];
+  customer -> query [style=dashed, label="Authorized read", color="#6F9F93", constraint=false];
+
+  subgraph cluster_reporting {
+    label="Phase 2  •  Consolidated management reporting";
+    style="rounded,filled"; color="#CADCEB"; fillcolor="#F8FBFE"; fontcolor="#142A43"; fontsize=14; margin=22;
+    compact [label="Compact narratives +\nstructured chart evidence"];
+    validate [label="Validate customer coverage\nand required evidence", fillcolor="#E8F4EF", color="#90B9A5"];
+    generate [label="Foundry agent: MANAGEMENT_PDF\nCode Interpreter: charts + PDF", fillcolor="#DFEDF8"];
+    retrieve [label="Extract file citation\nand download PDF"];
+    pdfcheck [label="Validate PDF before delivery", fillcolor="#E8F4EF", color="#90B9A5"];
+    email [label="Outlook management email\nwith validated PDF", fillcolor="#DCEAF7"];
+    compact -> validate -> generate -> retrieve -> pdfcheck -> email;
+  }
+  analyze -> compact;
+  caption [label="Reference architecture only • Synthetic examples • No production customer data or resource identifiers", shape=plain, fontsize=10, fontcolor="#6D7A89"];
+  email -> caption [style=invis];
+}
