@@ -124,7 +124,11 @@ This repository is a **sanitized architecture and reference-code showcase**, bas
 
 For anyone adapting the design, the [workflow guide](docs/workflow-guide.md) outlines the components and safeguards that must be implemented in an authorized environment.
 
-Security considerations and disclosure guidance are documented in [SECURITY.md](SECURITY.md). No open-source license is currently provided, so public visibility does not itself grant permission to reuse the code.
+Security considerations and disclosure guidance are documented in [SECURITY.md](SECURITY.md).
+
+## License
+
+This repository is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 ## References
 
