@@ -61,9 +61,6 @@ The five tools are **MonthlyIncidentTrend**, **IncidentDrivers**, **AnalyticsRul
 - [`docs/workflow-guide.md`](docs/workflow-guide.md): implementation checklist and production considerations.
 - [`docs/query-contracts.md`](docs/query-contracts.md): evidence shapes and validation semantics.
 - [`docs/engineering-lessons.md`](docs/engineering-lessons.md): failures and what resolved them.
-- [`docs/publication-checklist.md`](docs/publication-checklist.md): public-disclosure checklist.
-- [`docs/publishing-guide.md`](docs/publishing-guide.md): step-by-step GitHub and Medium publication instructions.
-- [`docs/medium-article.md`](docs/medium-article.md): publication-ready case study draft.
 - [`prompts/agent-instructions-example.md`](prompts/agent-instructions-example.md): two-mode reference prompt.
 - [`examples/customer-workspaces.example.json`](examples/customer-workspaces.example.json): fictional workspace registry.
 - [`examples/management-evidence.example.json`](examples/management-evidence.example.json): synthetic compact reporting records.
